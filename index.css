@@ -1,0 +1,19 @@
+#container{
+    display: flex;
+    border: 1px solid red;
+    height: 50px;
+    width: 80%;
+    justify-content: space-around;
+    margin: auto;
+    background-color: blueviolet;
+}
+#container>div{
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+#mainmenu{
+    text-decoration: none;
+    color: white;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+    <button onclick="getmenu()">get dish</button>
+    <div id="con">
+        <div id="meal">
+
+        </div>
+    </div>
+</body>
+</html>
+<script >
+
+let url="https://www.themealdb.com/api/json/v1/1/search.php?f=a"
+
+async function getmenu() {
+    let res= await fetch(url)
+    let data= await res.json()
+    finaldata=data.meals
+    // console.log(finaldata)
+    getdata(finaldata)
+    
+}
+
+
+
+function getdata(arr){
+    arr.forEach(function(ele){
+    
+       div1=document.createElement("div")
+
+       img=document.createElement('img')
+       img.src=ele.strMealThumb
+         
+       p1=document.createElement('p')
+       p1.textContent=`Dish  : ${ele.strMeal}`
+       
+       p2=document.createElement('p')
+       p2.textContent= `Price : ${Math.round (Math.random()*500)}`;
+
+       but=document.createElement("button")
+       but.textContent='Add To Cart';
+
+      // but.addEventListner("click",myfun)
+      but.onclick=function myfun(ele){
+      
+        let dishdata=localStorage.setItem("maindata",JSON.stringify(arr[0]))
+
+        window.location.href="cart.html"
+
+
+      }
+
+       div1.append(img,p1,p2,but)
+      
+       document.getElementById("meal").append(div1)
+    })
+ 
+}
+
+// function myfun(){
+    
+// }
+
+
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <div id="show"></div>
+    
+</body>
+</html>
+<script>
+    data=JSON.parse(localStorage.getItem("maindata"))
+    img=document.createElement("img")
+    img.src=data.strMealThumb
+
+       p1=document.createElement('p')
+       p1.textContent=`Dish  : ${data.strMeal}`
+       
+       p2=document.createElement('p')
+       p2.textContent= `Price : ${Math.round (Math.random()*500)}`;
+
+       but=document.createElement("button")
+       but.textContent='Procedue To checkout';
+
+       but.onclick=function myfun(ele){
+      
+      
+
+      window.location.href="checkout.html"
+
+
+    }
+
+    document.getElementById("show").append(img,p1,p2,but)
+</script>
